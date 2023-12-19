@@ -30,7 +30,8 @@ As mentioned above, the technologies used in this project were:
 ## Installation
 The steps to follow in order to try out the faucet locally are the following:
 
-1. Local blockchain creation: This first step will consist on running some docker commands, therefore, it is presumed that Docker is installed and running.
+### Local blockchain creation 
+This first step will consist on running some docker commands, therefore, it is presumed that Docker is installed and running.
 - Open a terminal in a directory of you choice.
 - Create a password.txt file in the same directory and write the password that will be used to create the keystore file.
 - Run the following docker command to create a new Ethereum account:
