@@ -27,7 +27,7 @@ app.get("/enviar/:cuenta", async (req, res) => {
         const tx = await web3.eth.accounts.signTransaction({
             to: req.params.cuenta,
             from: process.env.ADDRESS,
-            value: 10E18, //10 ETH en GWEI
+            value: ethers.parseUnits("10", 18),
             gas: 2000000 //en GWEI
         }, '0x' + process.env.PRIVATE_KEY)
 
