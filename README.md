@@ -49,17 +49,28 @@ docker run -it -v ${PWD}/password.txt:/password -p 8545:8545 -v ${PWD}/data:/dat
 ```
 Please note that in all these commands the -it flag was used to make the development more interactive and debug more easily any possible issues, feel free to use -d instead.
 
+### Repo cloning
+Once the network is up and running simply clone this repo in order to run the faucet:
+```bash
+
+```
+
 ## Usage
-Explain how to use the project:
-- Instructions on running the local Ethereum network
-- Steps to start the Express server and React app
-- How to connect a wallet and utilize the faucet
+Once the Ethereum local network is running and the repo cloned:
+1. Add the local network on Metamask with the proper RPC URL and chain ID. Use a name and token ticker of your choice:
+![image](https://github.com/arynyestos/CodeCryptoFaucetProject/assets/33223441/f0c34a90-6100-468c-93e4-721fa2ec1425)
+
+2. Start the server (TODO: add keystore file)
+
+3. Start the front end
+
+The wallet will be automatically connected to the faucet. Simply by clicking the button you will receive 10 ETH on the connected address.
 
 ## Code Structure
-Briefly describe the organization of the codebase, highlighting key directories or modules.
+TODO
 
 ## Future Improvements
-Share any potential enhancements or features that could be added to the project in the future.
+TODO
 
 ## Demo
-Include screenshots or a link to a demo to visually showcase the project in action.
+TODO
