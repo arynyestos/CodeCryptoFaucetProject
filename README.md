@@ -52,7 +52,15 @@ Please note that in all these commands the -it flag was used to make the develop
 ### Repo cloning
 Once the network is up and running simply clone this repo in order to run the faucet:
 ```bash
+git clone https://github.com/arynyestos/CodeCryptoFaucetProject.git
+cd CodeCryptoFaucetProject
+```
 
+### Configuration
+In order to use the faucet project you will need the private key of the address to which you allocated funds in the genesis.json. Place it in a .env file on a constant named PRIVATE_KEY, as well as its address assigning to a constant named ADDRESS. The .env shall look like this:
+```.env
+PRIVATE_KEY=c35ab18cba68cb1a35cb3a1cb8a..........
+ADDRESS=0x9d8c21b98c472b9d4c298d27b............
 ```
 
 ## Usage
@@ -60,7 +68,7 @@ Once the Ethereum local network is running and the repo cloned:
 1. Add the local network on Metamask with the proper RPC URL and chain ID. Use a name and token ticker of your choice:
 ![image](https://github.com/arynyestos/CodeCryptoFaucetProject/assets/33223441/f0c34a90-6100-468c-93e4-721fa2ec1425)
 
-2. Start the server (TODO: add keystore file)
+2. Start the server
 
 3. Start the front end
 
