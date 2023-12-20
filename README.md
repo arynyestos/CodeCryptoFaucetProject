@@ -69,8 +69,17 @@ Once the Ethereum local network is running and the repo cloned:
 ![image](https://github.com/arynyestos/CodeCryptoFaucetProject/assets/33223441/f0c34a90-6100-468c-93e4-721fa2ec1425)
 
 2. Start the server
+```bash
+cd Server
+node index.js
+```
 
 3. Start the front end
+```bash
+cd '.\Front end\'
+yarn
+yarn dev
+```
 
 The wallet will be automatically connected to the faucet. Simply by clicking the button you will receive 10 ETH on the connected address.
 
