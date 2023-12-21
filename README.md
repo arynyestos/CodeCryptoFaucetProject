@@ -31,7 +31,7 @@ As mentioned above, the technologies used in this project were:
 The steps to follow in order to try out the faucet locally are the following:
 
 ### Local blockchain creation 
-This first step will consist on running some docker commands, therefore, it is presumed that Docker is installed and running. Also, all commands were executed from WSL, so it is possible they fail if run directly on a Windows command line.
+This first step will consist on running some docker commands, therefore, it is presumed that Docker is installed and running. Also, all commands were executed from WSL, so it is possible they fail if run directly on a Windows command line. Should you like to read further before following the steps below, both [Geth](https://geth.ethereum.org/docs/fundamentals/private-network) and [Docker](https://hub.docker.com/r/ethereum/client-go) docs are useful resources.
 - Open a terminal in a directory of you choice.
 - Create a password.txt file in the same directory and write the password that will be used to create the keystore file.
 - Run the following docker command to create a new Ethereum account:
