@@ -26,12 +26,13 @@ As mentioned above, the technologies used in this project were:
 - Ethereum (Go Ethereum)
 - Express.js
 - React
+- WSL
 
 ## Installation
 The steps to follow in order to try out the faucet locally are the following:
 
 ### Local blockchain creation 
-This first step will consist on running some docker commands, therefore, it is presumed that Docker is installed and running.
+This first step will consist on running some docker commands, therefore, it is presumed that Docker is installed and running. Also, all commands were executed from WSL, so it is possible they fail if run directly on a Windows command line.
 - Open a terminal in a directory of you choice.
 - Create a password.txt file in the same directory and write the password that will be used to create the keystore file.
 - Run the following docker command to create a new Ethereum account:
@@ -43,11 +44,11 @@ docker run -it -v ${PWD}/password.txt:/password -v ${PWD}/data:/data ethereum/cl
 ```bash docker
 docker run -it -v ${PWD}/genesis.json:/genesis.json -v ${PWD}/data:/data ethereum/client-go:latest init --datadir /data /genesis.json
 ```
-- Run the following docker command to run the docker container with the Ethereum blockchain:
+- Run the following Docker command to start the Docker container with the Ethereum blockchain:
 ```bash docker
 docker run -it -v ${PWD}/password.txt:/password -p 8545:8545 -v ${PWD}/data:/data --name eth-node-faucet-project ethereum/client-go:latest --datadir /data --allow-insecure-unlock --miner.etherbase 3fBF61B6B45Fb2a3D7F065D825f2D5AfE1616a81 --mine --unlock "3fBF61B6B45Fb2a3D7F065D825f2D5AfE1616a81" --password /password --http --http.addr "0.0.0.0" --http.port 8545 --http.corsdomain "*" --http.api "admin,eth,debug,miner,net,txpool,personal,web3"
 ```
-Please note that in all these commands the -it flag was used to make the development more interactive and debug more easily any possible issues, feel free to use -d instead.
+Please note that in all these commands the -it flag was used to make the development more interactive and debug more easily any possible issues, feel free to use -d instead. 
 
 ## Usage
 Explain how to use the project:

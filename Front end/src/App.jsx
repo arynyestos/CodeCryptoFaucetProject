@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useState } from 'react'
 import './App.css'
-const {ethereum} = window
+const { ethereum } = window
 
 
 function App() {
@@ -9,20 +9,20 @@ function App() {
   const [saldo, setSaldo] = useState("")
   const [isLoading, setIsLoading] = useState(false)
 
-  async function getSaldo(cuenta){ 
+  async function getSaldo(cuenta) {
     const respuesta = await fetch(`http://localhost:3000/saldo/${cuenta}`)
-    if (respuesta.status == "200"){
+    if (respuesta.status == "200") {
       const datos = parseFloat(await respuesta.text()) / 1e18;
 
       setSaldo(datos)
     }
   }
-  
-  async function enviarETH(){   
+
+  async function enviarETH() {
     setIsLoading(true)
     const respuesta = await fetch(`http://localhost:3000/enviar/${cuenta}`)
-    if (respuesta.status == "200"){
-      const datos = await respuesta.json() 
+    if (respuesta.status == "200") {
+      const datos = await respuesta.json()
       await getSaldo(cuenta)
     }
     setIsLoading(false)
@@ -54,7 +54,7 @@ function App() {
           className="btn btn-primary btn-block btn-lg mt-4 p-3"
           disabled={isLoading}
         >
-          {isLoading ? "Procesando transacción..." : "Send 10 ETH"}
+          {isLoading ? "Sending transaction..." : "Send 10 ETH"}
         </button>
       </div>
     </div>

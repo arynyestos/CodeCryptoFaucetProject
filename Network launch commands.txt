@@ -1,8 +1,13 @@
 Account creation:
-docker run -it -v ${PWD}/password.txt:/password -v ${PWD}/data:/data ethereum/client-go:latest account new --datadir /data --password /password
+docker run -it -v ${PWD}/password.txt:/password -v ${PWD}/data:/data --name eth-node1-genesis ethereum/client-go:latest account new --datadir /data --password /password
 
 Inicialization:
 docker run -it -v ${PWD}/genesis.json:/genesis.json -v ${PWD}/data:/data ethereum/client-go:latest init --datadir /data /genesis.json
 
 Network launch:
 docker run -it -v ${PWD}/password.txt:/password -p 8545:8545 -v ${PWD}/data:/data --name eth-node-faucet-project ethereum/client-go:latest --datadir /data --allow-insecure-unlock --miner.etherbase 3fBF61B6B45Fb2a3D7F065D825f2D5AfE1616a81 --mine --unlock "3fBF61B6B45Fb2a3D7F065D825f2D5AfE1616a81" --password /password --http --http.addr "0.0.0.0" --http.port 8545 --http.corsdomain "*" --http.api "admin,eth,debug,miner,net,txpool,personal,web3"
+
+Launch a second node:
+docker run -it -v ${PWD}/password.txt:/password -v ${PWD}/data2:/data --name eth-node2-genesis ethereum/client-go:latest account new --datadir /data --password /password
+
+docker run -it -v ${PWD}/password.txt:/password -p 8546:8546 -v ${PWD}/data2:/data --name eth-node2-faucet-project ethereum/client-go:latest --datadir /data --allow-insecure-unlock --miner.etherbase de1ebBC5Dbf62052B0FAba64fE3149F2AbDE86D5 --mine --unlock "de1ebBC5Dbf62052B0FAba64fE3149F2AbDE86D5" --password /password --http --http.addr "0.0.0.0" --http.port 8546 --http.corsdomain "*" --http.api "admin,eth,debug,miner,net,txpool,personal,web3" --networkid 8888 --bootnodes "enode://f05ce8731ef3210fc5183dda0e8d4ebbdb35a0a132cc6ee85b38b0f7a88ec29852c303d2ac038c160165f72772ea2f543a8ecbca8b0e8fb298cc7fe8bc273e7c@127.0.0.1:30303"
