@@ -7,7 +7,6 @@ This was the first web 2 project of the CodeCrypto course, considered as such, a
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Code Structure](#code-structure)
 - [Future Improvements](#future-improvements)
 - [Demo](#demo)
 
@@ -37,30 +36,55 @@ This first step will consist on running some docker commands, therefore, it is p
 - Create a password.txt file in the same directory and write the password that will be used to create the keystore file.
 - Run the following docker command to create a new Ethereum account:
 ```bash docker
-docker run -it -v ${PWD}/password.txt:/password -v ${PWD}/data:/data ethereum/client-go:latest account new --datadir /data --password /password
+docker run -it -v ${PWD}/password.txt:/password -v ${PWD}/data:/data --name eth-node-genesis ethereum/client-go:latest account new --datadir /data --password /password
 ```
 - Create a genesis.json file. You can use the one featured in this repo just by modifying the addresses in the alloc field, as well as the one in the extradata field, which will be the authorized signer (take a look [here](https://victoryeo-62924.medium.com/clique-poa-in-ethereum-d8dad9d4fa3b) for further explanations!).
 - Run the following docker command to initialize the blockchain database:
 ```bash docker
-docker run -it -v ${PWD}/genesis.json:/genesis.json -v ${PWD}/data:/data ethereum/client-go:latest init --datadir /data /genesis.json
+docker run -it -v ${PWD}/genesis.json:/genesis.json -v ${PWD}/data:/data --name eth-node-initialization ethereum/client-go:latest init --datadir /data /genesis.json
 ```
-- Run the following Docker command to start the Docker container with the Ethereum blockchain:
+- Run the following docker command to run the docker container with the Ethereum blockchain. Note you will need to modify it, replacing the address in the example for that of your authorized signer:
 ```bash docker
 docker run -it -v ${PWD}/password.txt:/password -p 8545:8545 -v ${PWD}/data:/data --name eth-node-faucet-project ethereum/client-go:latest --datadir /data --allow-insecure-unlock --miner.etherbase 3fBF61B6B45Fb2a3D7F065D825f2D5AfE1616a81 --mine --unlock "3fBF61B6B45Fb2a3D7F065D825f2D5AfE1616a81" --password /password --http --http.addr "0.0.0.0" --http.port 8545 --http.corsdomain "*" --http.api "admin,eth,debug,miner,net,txpool,personal,web3"
 ```
-Please note that in all these commands the -it flag was used to make the development more interactive and debug more easily any possible issues, feel free to use -d instead. 
+Please note that in all these commands the -it flag was used to make the development more interactive and debug more easily any possible issues, feel free to use -d instead.
+
+### Repo cloning
+Once the network is up and running simply clone this repo in order to run the faucet:
+```bash
+git clone https://github.com/arynyestos/CodeCryptoFaucetProject.git
+cd CodeCryptoFaucetProject
+```
+
+### Configuration
+In order to use the faucet project you will need the private key of the address to which you allocated funds in the genesis.json. Place it in a .env file on a constant named PRIVATE_KEY, as well as its address assigning to a constant named ADDRESS. The .env shall look like this:
+```.env
+PRIVATE_KEY=c35ab18cba68cb1a35cb3a1cb8a..........
+ADDRESS=0x9d8c21b98c472b9d4c298d27b............
+```
 
 ## Usage
-Explain how to use the project:
-- Instructions on running the local Ethereum network
-- Steps to start the Express server and React app
-- How to connect a wallet and utilize the faucet
+Once the Ethereum local network is running and the repo cloned:
+1. Add the local network on Metamask with the proper RPC URL and chain ID. Use a name and token ticker of your choice:
+![image](https://github.com/arynyestos/CodeCryptoFaucetProject/assets/33223441/f0c34a90-6100-468c-93e4-721fa2ec1425)
 
-## Code Structure
-Briefly describe the organization of the codebase, highlighting key directories or modules.
+2. Start the server
+```bash
+cd Server
+node index.js
+```
+
+3. Start the front end
+```bash
+cd '.\Front end\'
+yarn
+yarn dev
+```
+
+The wallet will be automatically connected to the faucet. Simply by clicking the button you will receive 10 ETH on the connected address.
 
 ## Future Improvements
-Share any potential enhancements or features that could be added to the project in the future.
+A future improvement to this project, although by no means necessary for it to work, would be to add more nodes to the local network. Right now the project runs on a local blockchain with only one node creating blocks. It would be very interesting, for learning purposes, to run two or more nodes on separate containers and connect them all to the same local blockchain, so that actual consensus between all connected nodes has to be reached through the Clique algorithm.
 
 ## Demo
-Include screenshots or a link to a demo to visually showcase the project in action.
+TODO
