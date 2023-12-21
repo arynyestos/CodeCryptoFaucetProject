@@ -42,7 +42,7 @@ docker run -it -v ${PWD}/password.txt:/password -v ${PWD}/data:/data --name eth-
 ```bash docker
 docker run -it -v ${PWD}/genesis.json:/genesis.json -v ${PWD}/data:/data --name eth-node-initialization ethereum/client-go:latest init --datadir /data /genesis.json
 ```
-- Run the following docker command to run the docker container with the Ethereum blockchain:
+- Run the following docker command to run the docker container with the Ethereum blockchain. Note you will need to modify it, replacing the address in the example for that of your authorized signer:
 ```bash docker
 docker run -it -v ${PWD}/password.txt:/password -p 8545:8545 -v ${PWD}/data:/data --name eth-node-faucet-project ethereum/client-go:latest --datadir /data --allow-insecure-unlock --miner.etherbase 3fBF61B6B45Fb2a3D7F065D825f2D5AfE1616a81 --mine --unlock "3fBF61B6B45Fb2a3D7F065D825f2D5AfE1616a81" --password /password --http --http.addr "0.0.0.0" --http.port 8545 --http.corsdomain "*" --http.api "admin,eth,debug,miner,net,txpool,personal,web3"
 ```
