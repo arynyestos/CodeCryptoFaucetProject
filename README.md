@@ -14,7 +14,7 @@ This was the first web 2 project of the CodeCrypto course, considered as such, a
 This project consists on a simple faucet page where the user can connect their wallet and receive 10 ETH when clicking the button. It runs on a local Go Ethereum testnet deployed on a Docker Container. The transactions are sent from an Express server to which HTTP GET requests are sent from a React front end.
 
 <p align="center">
-  <img width="460" height="300" src="https://github.com/arynyestos/CodeCryptoProjects/assets/33223441/75a3682d-f257-4636-a2c0-2aafdf9c61b5">
+  <img src="https://github.com/arynyestos/CodeCryptoProjects/assets/33223441/75a3682d-f257-4636-a2c0-2aafdf9c61b5">
 </p>
 
 ![Faucet](https://github.com/arynyestos/CodeCryptoProjects/assets/33223441/75a3682d-f257-4636-a2c0-2aafdf9c61b5)
