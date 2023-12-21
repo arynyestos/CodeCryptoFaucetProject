@@ -11,7 +11,7 @@ This was the first web 2 project of the CodeCrypto course, considered as such, a
 - [Demo](#demo)
 
 ## Overview
-This project consists on a simple faucet page where the user can connect their wallet and receive 10 ETH when clicking the button. It runs on a local Go Ethereum testnet deployed on a Docker Container.
+This project consists on a simple faucet page where the user can connect their wallet and receive 10 ETH when clicking the button. It runs on a local Go Ethereum testnet deployed on a Docker Container. The transactions are sent from an Express server to which HTTP GET requests are sent from a React front end.
 
 ![Faucet](https://github.com/arynyestos/CodeCryptoProjects/assets/33223441/75a3682d-f257-4636-a2c0-2aafdf9c61b5)
 
@@ -84,7 +84,13 @@ yarn dev
 The wallet will be automatically connected to the faucet. Simply by clicking the button you will receive 10 ETH on the connected address.
 
 ## Future Improvements
-A future improvement to this project, although by no means necessary for it to work, would be to add more nodes to the local network. Right now the project runs on a local blockchain with only one node creating blocks. It would be very interesting, for learning purposes, to run two or more nodes on separate containers and connect them all to the same local blockchain, so that actual consensus between all connected nodes has to be reached through the Clique algorithm.
+There are several improvements that could be done to this project, some that come to mind are:
+1. More professional front end: since the main goal for this project was to create a faucet on a local network and have transactions intiated from a front end and through a back end, making a great looking front end wasn't the main concern, however, an obvious future improvement would be to create one more up to today's aesthetic standards.
+2. Rainbow Kit wallet connection: for the same reason as stated above, wallet connection was just made automatic. A nice improvement would be to use Rainbow Kit, whic is the industry standard for this.
+3. Multi node local chain: A final future improvement to this project, although by no means necessary for it to work, would be to add more nodes to the local network. Right now the project runs on a local blockchain with only one node creating blocks. It would be very interesting, for learning purposes, to run two or more nodes on separate containers and connect them all to the same local blockchain, so that actual consensus between all connected nodes has to be reached through the Clique algorithm.
 
 ## Demo
-TODO
+In the following video demonstration you can see how the faucet is fully functional and ETH is sent to the connected wallet upon button clicking. Also, when the wallet is switched in Metamask it gets connected to the faucet automatically so that funds can be sent seamlessly to it.
+
+https://github.com/arynyestos/CodeCryptoFaucetProject/assets/33223441/c9887494-57da-431f-9a8d-b371fead1bc4
+
