@@ -7,7 +7,6 @@ This was the first web 2 project of the CodeCrypto course, considered as such, a
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Code Structure](#code-structure)
 - [Future Improvements](#future-improvements)
 - [Demo](#demo)
 
@@ -83,11 +82,8 @@ yarn dev
 
 The wallet will be automatically connected to the faucet. Simply by clicking the button you will receive 10 ETH on the connected address.
 
-## Code Structure
-TODO
-
 ## Future Improvements
-TODO
+A future improvement to this project, although by no means necessary for it to work, would be to add more nodes to the local network. Right now the project runs on a local blockchain with only one node creating blocks. It would be very interesting, for learning purposes, to run two or more nodes on separate containers and connect them all to the same local blockchain, so that actual consensus between all connected nodes has to be reached through the Clique algorithm.
 
 ## Demo
 TODO
