@@ -40,7 +40,7 @@ This first step will consist on running some docker commands, therefore, it is p
 ```bash docker
 docker run -it -v ${PWD}/password.txt:/password -v ${PWD}/data:/data --name eth-node-genesis ethereum/client-go:latest account new --datadir /data --password /password
 ```
-- Create a genesis.json file. You can use the one featured in this repo just by modifying the addresses in the alloc field, as well as the one in the extradata field, which will be the authorized signer (take a look [here](https://victoryeo-62924.medium.com/clique-poa-in-ethereum-d8dad9d4fa3b) for further explanations!).
+- Create a genesis.json file. You can use [this one](https://github.com/arynyestos/CodeCryptoFaucetProject/blob/main/genesis.json) just by modifying the addresses in the alloc field, as well as the one in the extradata field, which will be the authorized signer (take a look [here](https://victoryeo-62924.medium.com/clique-poa-in-ethereum-d8dad9d4fa3b) for further explanations!).
 - Run the following docker command to initialize the blockchain database:
 ```bash docker
 docker run -it -v ${PWD}/genesis.json:/genesis.json -v ${PWD}/data:/data --name eth-node-initialization ethereum/client-go:latest init --datadir /data /genesis.json
