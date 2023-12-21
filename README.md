@@ -35,12 +35,12 @@ This first step will consist on running some docker commands, therefore, it is p
 - Create a password.txt file in the same directory and write the password that will be used to create the keystore file.
 - Run the following docker command to create a new Ethereum account:
 ```bash docker
-docker run -it -v ${PWD}/password.txt:/password -v ${PWD}/data:/data ethereum/client-go:latest account new --datadir /data --password /password
+docker run -it -v ${PWD}/password.txt:/password -v ${PWD}/data:/data --name eth-node-genesis ethereum/client-go:latest account new --datadir /data --password /password
 ```
 - Create a genesis.json file. You can use the one featured in this repo just by modifying the addresses in the alloc field, as well as the one in the extradata field, which will be the authorized signer (take a look [here](https://victoryeo-62924.medium.com/clique-poa-in-ethereum-d8dad9d4fa3b) for further explanations!).
 - Run the following docker command to initialize the blockchain database:
 ```bash docker
-docker run -it -v ${PWD}/genesis.json:/genesis.json -v ${PWD}/data:/data ethereum/client-go:latest init --datadir /data /genesis.json
+docker run -it -v ${PWD}/genesis.json:/genesis.json -v ${PWD}/data:/data --name eth-node-initialization ethereum/client-go:latest init --datadir /data /genesis.json
 ```
 - Run the following docker command to run the docker container with the Ethereum blockchain:
 ```bash docker
