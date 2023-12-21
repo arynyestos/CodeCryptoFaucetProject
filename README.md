@@ -73,7 +73,7 @@ Once the Ethereum local network is running and the repo cloned:
   <img src="https://github.com/arynyestos/CodeCryptoFaucetProject/assets/33223441/f0c34a90-6100-468c-93e4-721fa2ec1425">
 </p>
 
-3. Start the server
+2. Start the server
 ```bash
 cd Server
 node index.js
