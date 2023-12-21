@@ -17,8 +17,6 @@ This project consists on a simple faucet page where the user can connect their w
   <img src="https://github.com/arynyestos/CodeCryptoProjects/assets/33223441/75a3682d-f257-4636-a2c0-2aafdf9c61b5">
 </p>
 
-![Faucet](https://github.com/arynyestos/CodeCryptoProjects/assets/33223441/75a3682d-f257-4636-a2c0-2aafdf9c61b5)
-
 ## Features
 - **Local Ethereum Network:** In this project a local Ethereum network was created using Go Ethereum on Docker. It used Proof of Authority consensus algorithm, more precisely, Clique, which is the POA implementation if Ethereum geth.
 - **Faucet Functionality:** Once the network was ready, both a backend consisting of an express server and a React front end were developed to complete a simple faucet, in which the wallet is automatically connected and 10 ETH are sent to it when the button is clicked.
@@ -70,9 +68,12 @@ ADDRESS=0x9d8c21b98c472b9d4c298d27b............
 ## Usage
 Once the Ethereum local network is running and the repo cloned:
 1. Add the local network on Metamask with the proper RPC URL and chain ID. Use a name and token ticker of your choice:
-![image](https://github.com/arynyestos/CodeCryptoFaucetProject/assets/33223441/f0c34a90-6100-468c-93e4-721fa2ec1425)
 
-2. Start the server
+<p align="center">
+  <img src="https://github.com/arynyestos/CodeCryptoFaucetProject/assets/33223441/f0c34a90-6100-468c-93e4-721fa2ec1425">
+</p>
+
+3. Start the server
 ```bash
 cd Server
 node index.js
